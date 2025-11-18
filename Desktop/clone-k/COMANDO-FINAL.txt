@@ -1,0 +1,39 @@
+═══════════════════════════════════════════════════════════════
+  COMANDO FINAL - VERSÃO ROBUSTA (FUNCIONANDO)
+═══════════════════════════════════════════════════════════════
+
+COPIE E COLE ESTE COMANDO NO POWERSHELL:
+
+cd "C:\Users\Leonardo trentini\Desktop\clone-k"; npm install express cheerio jszip axios puppeteer; node server-robusto.js
+
+
+═══════════════════════════════════════════════════════════════
+  OU USE O SCRIPT AUTOMÁTICO:
+═══════════════════════════════════════════════════════════════
+
+cd "C:\Users\Leonardo trentini\Desktop\clone-k"
+.\executar-robusto.ps1
+
+
+═══════════════════════════════════════════════════════════════
+  DEPOIS ACESSE:
+═══════════════════════════════════════════════════════════════
+
+http://localhost:3001
+
+
+═══════════════════════════════════════════════════════════════
+  O QUE FOI IMPLEMENTADO:
+═══════════════════════════════════════════════════════════════
+
+✅ Puppeteer - Renderiza JavaScript completamente
+✅ Axios - Requisições HTTP robustas
+✅ Cheerio - Parsing de HTML
+✅ JSZip - Download de bibliotecas
+✅ Detecção de pixels avançada
+✅ Substituição de links completa
+✅ Logs detalhados no console
+✅ Tratamento de erros robusto
+
+═══════════════════════════════════════════════════════════════
+

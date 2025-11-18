@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════
+  COMO USAR - NÃO PRECISA EXECUTAR NO POWERSHELL TODA VEZ!
+═══════════════════════════════════════════════════════════════
+
+OPÇÃO 1: CLICAR DUAS VEZES NO ARQUIVO .BAT
+───────────────────────────────────────────────────────────────
+
+✅ INICIAR-SERVIDOR.bat
+   - Versão ROBUSTA (com Puppeteer)
+   - Renderiza JavaScript completo
+   - Clique duas vezes e pronto!
+
+✅ INICIAR-PREVIEW.bat
+   - Versão SIMPLES (mais rápida)
+   - Sem Puppeteer
+   - Clique duas vezes e pronto!
+
+
+═══════════════════════════════════════════════════════════════
+  IMPORTANTE:
+═══════════════════════════════════════════════════════════════
+
+✅ Uma vez que o servidor está rodando, NÃO precisa executar
+   de novo até você FECHAR a janela do servidor.
+
+✅ Se você fechar a janela do servidor, aí sim precisa abrir
+   de novo (clicando duas vezes no .bat).
+
+✅ Enquanto o servidor estiver rodando, você pode usar a
+   ferramenta normalmente no navegador em:
+   http://localhost:3001
+
+
+═══════════════════════════════════════════════════════════════
+  DICA:
+═══════════════════════════════════════════════════════════════
+
+Você pode criar um ATALHO na área de trabalho:
+
+1. Clique com botão direito em INICIAR-SERVIDOR.bat
+2. Selecione "Criar atalho"
+3. Arraste o atalho para a área de trabalho
+4. Agora é só clicar duas vezes no atalho!
+
+
+═══════════════════════════════════════════════════════════════
+

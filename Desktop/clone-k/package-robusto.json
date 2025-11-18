@@ -1,0 +1,18 @@
+{
+  "name": "clone-k-robusto",
+  "version": "2.0.0",
+  "description": "Clonador de páginas web robusto com Puppeteer",
+  "main": "server-robusto.js",
+  "scripts": {
+    "start": "node server-robusto.js",
+    "dev": "node server-robusto.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cheerio": "^1.0.0",
+    "jszip": "^3.10.1",
+    "axios": "^1.6.0",
+    "puppeteer": "^21.5.0"
+  }
+}
+

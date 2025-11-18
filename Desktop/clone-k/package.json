@@ -1,0 +1,24 @@
+{
+  "name": "clone-k",
+  "version": "1.0.0",
+  "description": "Aplicação para clonar páginas web com substituição de links e pixels",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "jszip": "^3.10.1",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/jszip": "^3.4.1",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}

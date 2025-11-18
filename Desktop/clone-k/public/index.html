@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone-K - Clonador de Páginas Web</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        input[type="text"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: 'Courier New', monospace;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .status-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .pixel-info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .download-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #htmlOutput {
+            min-height: 300px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clone-K - Clonador de Páginas Web</h1>
+
+        <div class="form-group">
+            <label for="pageUrl">URL da Página para Clonar:</label>
+            <input type="url" id="pageUrl" placeholder="https://exemplo.com/pagina" />
+        </div>
+
+        <div class="form-group">
+            <label for="buttonLink">Novo Link para Botões (opcional):</label>
+            <input type="url" id="buttonLink" placeholder="https://novo-link.com" />
+        </div>
+
+        <div class="form-group">
+            <label for="newPixel">Código do Novo Pixel (opcional):</label>
+            <textarea id="newPixel" placeholder="Cole aqui o código do pixel (script tag ou código JavaScript)"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="removeCurrentPixel" />
+                <label for="removeCurrentPixel">Remover pixel atual e implementar novo pixel</label>
+            </div>
+            <div id="pixelInfo" class="pixel-info" style="display: none;">
+                ⚠️ Pixel detectado na página! Marque a opção acima para substituí-lo.
+            </div>
+        </div>
+
+        <button id="cloneBtn" onclick="handleClonePage()">Clonar Página</button>
+
+        <div id="statusMessage"></div>
+
+        <div id="htmlSection" style="display: none; margin-top: 30px;">
+            <div class="form-group">
+                <label>HTML Clonado:</label>
+                <textarea id="htmlOutput" readonly></textarea>
+                <button onclick="downloadHtml()" style="margin-top: 10px;">Baixar HTML</button>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h2 class="section-title">Download de Biblioteca de Anúncios</h2>
+            <div class="form-group">
+                <label for="libraryUrl">URL da Biblioteca de Anúncios:</label>
+                <input type="url" id="libraryUrl" placeholder="https://exemplo.com/biblioteca" />
+            </div>
+            <button id="downloadBtn" onclick="handleDownloadLibrary()">Baixar Todos os Arquivos (ZIP)</button>
+        </div>
+    </div>
+
+    <script>
+        let clonedHtml = '';
+        let pixelDetected = false;
+
+        async function handleClonePage() {
+            const pageUrl = document.getElementById('pageUrl').value;
+            const buttonLink = document.getElementById('buttonLink').value;
+            const newPixel = document.getElementById('newPixel').value;
+            const removeCurrentPixel = document.getElementById('removeCurrentPixel').checked;
+
+            if (!pageUrl) {
+                showStatus('error', 'Por favor, insira a URL da página');
+                return;
+            }
+
+            const btn = document.getElementById('cloneBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span> Processando...';
+            clearStatus();
+
+            try {
+                const response = await fetch('/api/clone', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: pageUrl, buttonLink, newPixel, removeCurrentPixel })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Erro ao clonar página');
+                }
+
+                clonedHtml = data.html;
+                pixelDetected = data.pixelDetected || false;
+
+                document.getElementById('htmlOutput').value = clonedHtml;
+                document.getElementById('htmlSection').style.display = 'block';
+                document.getElementById('pixelInfo').style.display = pixelDetected ? 'block' : 'none';
+
+                showStatus('success', 'Página clonada com sucesso! O HTML está disponível abaixo.');
+            } catch (error) {
+                console.error('Erro:', error);
+                showStatus('error', error.message || 'Erro ao processar a página. Verifique o console para mais detalhes.');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Clonar Página';
+            }
+        }
+
+        async function handleDownloadLibrary() {
+            const libraryUrl = document.getElementById('libraryUrl').value;
+
+            if (!libraryUrl) {
+                showStatus('error', 'Por favor, insira a URL da biblioteca');
+                return;
+            }
+
+            const btn = document.getElementById('downloadBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span> Baixando...';
+            clearStatus();
+
+            try {
+                const response = await fetch('/api/download-library', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: libraryUrl })
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Erro ao baixar biblioteca');
+                }
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'library-files.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+
+                showStatus('success', 'Biblioteca baixada com sucesso!');
+            } catch (error) {
+                showStatus('error', error.message || 'Erro ao baixar biblioteca');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Baixar Todos os Arquivos (ZIP)';
+            }
+        }
+
+        function downloadHtml() {
+            if (!clonedHtml) {
+                showStatus('error', 'Nenhum HTML clonado disponível');
+                return;
+            }
+
+            const blob = new Blob([clonedHtml], { type: 'text/html' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cloned-page.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            showStatus('success', 'HTML baixado com sucesso!');
+        }
+
+        function showStatus(type, message) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.className = `status-message status-${type}`;
+            statusDiv.textContent = message;
+            statusDiv.style.display = 'block';
+        }
+
+        function clearStatus() {
+            document.getElementById('statusMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+

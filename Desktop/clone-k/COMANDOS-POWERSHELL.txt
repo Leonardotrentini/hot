@@ -1,0 +1,39 @@
+═══════════════════════════════════════════════════════════════
+  COMANDOS PARA EXECUTAR NO POWERSHELL
+═══════════════════════════════════════════════════════════════
+
+OPÇÃO 1: Executar Preview (Node.js puro) - RECOMENDADO
+───────────────────────────────────────────────────────
+
+Copie e cole este comando completo:
+
+cd "C:\Users\Leonardo trentini\Desktop\clone-k"; npm install express cheerio jszip; node preview-server.js
+
+
+OPÇÃO 2: Usar o script PowerShell automático
+───────────────────────────────────────────────────────
+
+cd "C:\Users\Leonardo trentini\Desktop\clone-k"
+.\executar.ps1
+
+
+OPÇÃO 3: Versão Next.js completa
+───────────────────────────────────────────────────────
+
+cd "C:\Users\Leonardo trentini\Desktop\clone-k"
+npm install
+npm run dev
+
+
+═══════════════════════════════════════════════════════════════
+  IMPORTANTE: Se der erro "fetch não é uma função"
+═══════════════════════════════════════════════════════════════
+
+O código foi corrigido! Agora usa o fetch nativo do Node.js 24.
+
+Se ainda der erro, execute:
+
+cd "C:\Users\Leonardo trentini\Desktop\clone-k"
+node preview-server.js
+
+═══════════════════════════════════════════════════════════════

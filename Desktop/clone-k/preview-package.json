@@ -1,0 +1,15 @@
+{
+  "name": "clone-k-preview",
+  "version": "1.0.0",
+  "description": "Preview da ferramenta Clone-K em Node.js puro",
+  "main": "preview-server.js",
+  "scripts": {
+    "preview": "node preview-server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cheerio": "^1.0.0",
+    "jszip": "^3.10.1"
+  }
+}
+

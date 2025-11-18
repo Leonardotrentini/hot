@@ -1,0 +1,33 @@
+═══════════════════════════════════════════════════════════════
+  TESTE AGORA - INSTRUÇÕES SIMPLES
+═══════════════════════════════════════════════════════════════
+
+✅ EU JÁ CORRIGI O ERRO!
+
+O problema era que o código estava usando "fetch" que não
+funcionava. Agora está usando "axios" que funciona perfeitamente.
+
+═══════════════════════════════════════════════════════════════
+  O QUE VOCÊ PRECISA FAZER:
+═══════════════════════════════════════════════════════════════
+
+1. Feche a janela do servidor que está rodando (Ctrl+C)
+
+2. Execute este comando no PowerShell:
+
+   cd "C:\Users\Leonardo trentini\Desktop\clone-k"
+   npm install axios
+   node preview-server.js
+
+3. Ou simplesmente clique duas vezes em: INICIAR-PREVIEW.bat
+
+4. Abra o navegador em: http://localhost:3001
+
+5. TESTE clonando a página!
+
+═══════════════════════════════════════════════════════════════
+
+Pronto! Agora deve funcionar sem o erro "fetch is not a function"
+
+═══════════════════════════════════════════════════════════════
+
