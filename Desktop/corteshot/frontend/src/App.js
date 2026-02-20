@@ -148,12 +148,13 @@ function App() {
           >
             🤖 Automações Telegram
           </button>
-          <button
+          {/* Aba de pagamentos desabilitada temporariamente */}
+          {/* <button
             className={`tab-button ${activeTab === 'pagamentos' ? 'active' : ''}`}
             onClick={() => setActiveTab('pagamentos')}
           >
             💳 Pagamentos Sync
-          </button>
+          </button> */}
         </div>
 
         {/* Conteúdo das Abas */}
