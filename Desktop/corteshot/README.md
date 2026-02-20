@@ -1,6 +1,12 @@
 # 🎬 CortesHot
 
-Plataforma profissional de corte de vídeos para operação hot, com automações Telegram e integração SyncPayments.
+Plataforma profissional de corte de vídeos para operação hot, com automações Telegram.
+
+> **Status:** ✅ Pronto para deploy!
+> 
+> - Frontend: Vercel
+> - Backend: Railway/Render
+> - **Veja:** `DEPLOY_RAPIDO.md` para deploy em 5 minutos
 
 ## 🚀 Funcionalidades
 
