@@ -6,5 +6,16 @@ INICIAR*.bat
 *.log
 package.json.backup
 package-lock.json
+.git/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+.cache/
+.env
+.env.local
 backend/**
 !frontend/**
