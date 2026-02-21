@@ -49,3 +49,6 @@ ffprobe/
 # Configurações locais
 config.local.json
 sync_config.json
+
+# Package lock files (NÃO commitar na raiz)
+package-lock.json
