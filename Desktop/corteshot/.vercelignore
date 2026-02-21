@@ -4,3 +4,5 @@ node_modules/
 !README.md
 INICIAR*.bat
 *.log
+package.json
+package-lock.json
