@@ -1,7 +1,6 @@
 {
   "name": "corteshot",
   "version": "1.0.0",
-  "description": "Plataforma de corte de vídeos para operação hot",
   "private": true,
   "scripts": {
     "vercel-build": "cd frontend && npm install && npm run build"

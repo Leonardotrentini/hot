@@ -1,8 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm run vercel-build",
+  "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/build",
-  "installCommand": "echo 'Skipping root install'",
-  "framework": null,
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./frontend"
+  "installCommand": "echo 'No install needed' && exit 0",
+  "framework": null
 }
