@@ -4,6 +4,7 @@ node_modules/
 !README.md
 INICIAR*.bat
 *.log
+package.json.backup
 package-lock.json
 backend/**
 !frontend/**
