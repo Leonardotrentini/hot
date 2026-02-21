@@ -6,3 +6,5 @@ INICIAR*.bat
 *.log
 package.json
 package-lock.json
+backend/**
+!frontend/**
